@@ -1,0 +1,29 @@
+{
+  "name": "@markmirror/commands",
+  "version": "0.2.0",
+  "description": "Commands binding of the MarkMirror Markdown editor",
+  "author": {
+    "name": "Hsiaoming Yang",
+    "email": "me@lepture.com",
+    "url": "https://lepture.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/markmirror/commands.git"
+  },
+  "keywords": [
+    "markdown",
+    "editor"
+  ],
+  "type": "module",
+  "module": "index.js",
+  "sideEffects": false,
+  "license": "MIT",
+  "dependencies": {
+    "@codemirror/commands": "^6.0.0",
+    "@codemirror/language": "^6.0.0",
+    "@codemirror/state": "^6.0.0",
+    "@codemirror/view": "^6.0.0",
+    "@lezer/common": "^1.0.0"
+  }
+}

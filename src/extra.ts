@@ -8,9 +8,6 @@ export function toggleHorizontalRule (view: EditorView) : boolean {
 
   let userEvent = ''
   const mutations = state.changeByRange(range => {
-    if (!range.empty) {
-      return { range }
-    }
     const node = getSelectedNode(state, range, "HorizontalRule")
     const line = state.doc.lineAt(range.from)
     if (node) {
@@ -19,9 +16,9 @@ export function toggleHorizontalRule (view: EditorView) : boolean {
     }
 
     userEvent = "input"
-    let insert = '---\n'
+    let insert = '---'
     if (!/^\s*$/.test(line.text)) {
-      insert = "\n\n---\n"
+      insert = "\n\n---"
       return { range: EditorSelection.cursor(line.to + insert.length), changes: [{ from: line.to, insert }] }
     }
 
