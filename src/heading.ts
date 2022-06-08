@@ -1,6 +1,6 @@
 import { EditorSelection } from "@codemirror/state"
 import { EditorView } from "@codemirror/view"
-import { getSelectedNodes } from "../cursor"
+import { getSelectedNodes } from "./cursor"
 
 export function toggleHeading (level: number) {
   return (view: EditorView) => {

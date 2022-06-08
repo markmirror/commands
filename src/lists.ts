@@ -1,6 +1,6 @@
 import { ChangeSpec, EditorSelection, EditorState, Line } from "@codemirror/state"
 import { EditorView } from "@codemirror/view"
-import { getSelectedNode } from "../cursor"
+import { getSelectedNode } from "./cursor"
 
 
 export function toggleBulletList (view: EditorView) : boolean {

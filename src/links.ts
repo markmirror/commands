@@ -1,6 +1,6 @@
 import { EditorSelection } from "@codemirror/state"
 import { EditorView } from "@codemirror/view"
-import { getSelectedNode } from "../cursor"
+import { getSelectedNode } from "./cursor"
 
 
 export function insertLink (view: EditorView, text: string, url: string, title?: string) {

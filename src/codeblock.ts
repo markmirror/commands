@@ -1,7 +1,7 @@
 import { ChangeSpec, EditorSelection, EditorState } from "@codemirror/state"
 import { EditorView } from "@codemirror/view"
 import { SyntaxNode } from "@lezer/common"
-import { getSelectedNodes } from "../cursor"
+import { getSelectedNodes } from "./cursor"
 
 
 export function toggleBlockcode (view: EditorView) {

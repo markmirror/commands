@@ -1,6 +1,6 @@
 import { ChangeSpec, EditorSelection, Line } from "@codemirror/state"
 import { EditorView } from "@codemirror/view"
-import { getSelectedNode, SelectionRange } from "../cursor"
+import { getSelectedNode, SelectionRange } from "./cursor"
 
 
 export function toggleBlockquote (view: EditorView) {

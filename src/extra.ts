@@ -1,6 +1,6 @@
 import { EditorView } from "@codemirror/view"
 import { EditorSelection } from "@codemirror/state"
-import { getSelectedNode } from "../cursor"
+import { getSelectedNode } from "./cursor"
 
 
 export function toggleHorizontalRule (view: EditorView) : boolean {
