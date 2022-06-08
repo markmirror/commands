@@ -1,6 +1,6 @@
-import { Command } from "@codemirror/view"
+import { Command, keymap } from "@codemirror/view"
 import { StateCommand } from "@codemirror/state"
-import { indentMore, indentLess, undo, redo } from "@codemirror/commands"
+import { indentMore, indentLess, undo, redo, history, historyKeymap } from "@codemirror/commands"
 import { insertLinebreak, toggleHorizontalRule } from "./extra"
 import {
   toggleBold,
@@ -50,9 +50,15 @@ export const markdownKeymap = [
 ]
 
 
-export const markdownActionMap : {[key: string]: Command | StateCommand} = {
-  'undo': undo,
-  'redo': redo,
+export const buildMarkdownCommands = (addHistory = false) => {
+  if (addHistory) {
+    return [ history(), keymap.of([...markdownKeymap, ...historyKeymap]) ]
+  }
+  return keymap.of(markdownKeymap)
+}
+
+
+export const markdownActions: {[key: string]: Command | StateCommand} = {
   'bold': toggleBold,
   'italic': toggleItalic,
   'codespan': toggleInlineCode,
@@ -71,6 +77,14 @@ export const markdownActionMap : {[key: string]: Command | StateCommand} = {
   'h4': toggleH4,
   'h5': toggleH5,
   'h6': toggleH6,
+}
+
+
+export const buildMarkdownActions = (addHistory = false) => {
+  if (addHistory) {
+    return { ...markdownActions, 'undo': undo, 'redo': redo }
+  }
+  return markdownActions
 }
 
 
