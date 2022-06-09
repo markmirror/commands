@@ -1,6 +1,6 @@
 {
   "name": "@markmirror/commands",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Commands binding of the MarkMirror Markdown editor",
   "author": {
     "name": "Hsiaoming Yang",
