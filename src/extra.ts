@@ -22,7 +22,7 @@ export function toggleHorizontalRule (view: EditorView) : boolean {
       return { range: EditorSelection.cursor(line.to + insert.length), changes: [{ from: line.to, insert }] }
     }
 
-    if (line.number) {
+    if (line.from) {
       const prevLine = state.doc.line(line.number - 1)
       if (!/^\s*$/.test(prevLine.text)) {
         insert = '\n' + insert

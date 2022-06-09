@@ -1,6 +1,6 @@
 import { Command, keymap } from "@codemirror/view"
 import { StateCommand } from "@codemirror/state"
-import { indentMore, indentLess, undo, redo, history, historyKeymap } from "@codemirror/commands"
+import { undo, redo, history, historyKeymap } from "@codemirror/commands"
 import { insertLinebreak, toggleHorizontalRule } from "./extra"
 import {
   toggleBold,
@@ -27,8 +27,6 @@ import { toggleOrderedList, toggleBulletList } from "./lists"
 // Keyboard shortcuts
 // Keymap inspired by https://wordpress.org/support/article/keyboard-shortcuts/
 export const markdownKeymap = [
-  { key: 'Mod-]', run: indentMore },
-  { key: 'Mod-[', run: indentLess },
   { key: 'Mod-b', run: toggleBold },
   { key: 'Mod-i', run: toggleItalic },
   { key: 'Mod-k', run: toggleLink },

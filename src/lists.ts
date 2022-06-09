@@ -122,7 +122,7 @@ export function toggleOrderedList (view: EditorView) : boolean {
 
 function getSurroundBullet (state: EditorState, line: Line, regex: RegExp) {
   let marker = ''
-  if (line.number) {
+  if (line.from) {
     const m1 = state.doc.line(line.number - 1).text.match(regex)
     if (m1) {
       marker = m1[1] + ' '
@@ -143,7 +143,7 @@ function getSurroundBullet (state: EditorState, line: Line, regex: RegExp) {
 function getOrderedIndex (state: EditorState, line: Line, regex: RegExp) {
   let index = 0
   let marker = ''
-  if (line.number) {
+  if (line.from) {
     const m1 = state.doc.line(line.number - 1).text.match(regex)
     if (m1) {
       if (/\.\s/.test(m1[0])) {
