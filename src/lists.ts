@@ -173,3 +173,30 @@ function getOrderedIndex (state: EditorState, line: Line, regex: RegExp) {
   }
   return { index, marker }
 }
+
+const taskMarkerCursor = EditorView.baseTheme({
+  ".cmt-taskmarker": {
+    cursor: "pointer",
+  },
+})
+
+const clickToggleTask = EditorView.domEventHandlers({
+  click: (event: MouseEvent, view: EditorView) => {
+    let target = event.target as HTMLElement
+    if (target.classList.contains('cmt-taskmarker')) {
+      const pos = view.posAtDOM(target)
+      const changes = []
+      if (target.textContent === '[ ]') {
+        changes.push({ from: pos, to: pos + 3, insert: '[x]' })
+      } else {
+        changes.push({ from: pos, to: pos + 3, insert: '[ ]' })
+      }
+      const selection = view.state.selection
+      view.dispatch({ selection, changes }, { userEvent: 'input' })
+      return true
+    }
+    return false
+  },
+})
+
+export const taskClickToggle = [ taskMarkerCursor, clickToggleTask ]
