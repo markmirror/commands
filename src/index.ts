@@ -1,6 +1,7 @@
 import { Command, keymap } from "@codemirror/view"
 import { StateCommand } from "@codemirror/state"
 import { undo, redo, history, historyKeymap } from "@codemirror/commands"
+import type { MarkMirror } from "@markmirror/core"
 import { insertLinebreak, toggleHorizontalRule } from "./extra"
 import {
   toggleBold,
@@ -105,4 +106,13 @@ export const markdownNodeMenus : {[key: string]: string} = {
   "ATXHeading4": "h4",
   "ATXHeading5": "h5",
   "ATXHeading6": "h6",
+}
+
+export const commands = (addHistory: boolean = false) => {
+  return (editor: MarkMirror) => {
+    markdownKeymap.forEach(k => {
+      editor.registerInvokeHandler(k.run.name, k.run)
+    })
+    return buildMarkdownCommands(addHistory)
+  }
 }

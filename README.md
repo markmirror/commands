@@ -7,9 +7,8 @@ Keyboard shortcuts and commands for the MarkMirror editor.
 
 ```js
 import { MarkMirror } from "@markmirror/core"
-import { buildMarkdownCommands } from "@markmirror/commands"
+import { commands } from "@markmirror/commands"
 
-const editor = new MarkMirror({
-  extensions: [ buildMarkdownCommands(true) ]
-})
+const editor = new MarkMirror()
+editor.use(commands(true))
 ```
